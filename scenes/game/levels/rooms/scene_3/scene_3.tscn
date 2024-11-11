@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://maf7s1c6fyyp" path="res://assets/sprites/treasure_hunters/palm_tree_island/sprites/objects/chest/chest_close_04.png" id="15_7ognl"]
 [ext_resource type="Texture2D" uid="uid://dcptpykdlp5rk" path="res://assets/sprites/treasure_hunters/palm_tree_island/sprites/objects/flag/flag_01.png" id="16_y3mso"]
 [ext_resource type="PackedScene" uid="uid://deedu63sld0es" path="res://scenes/game/levels/objects/death/death.tscn" id="17_1wrf7"]
-[ext_resource type="Texture2D" uid="uid://cg6wkkuni8aq8" path="res://assets/sprites/treasure_hunters/palm_tree_island/sprites/background/bg_image.png" id="18_sllox"]
+[ext_resource type="Texture2D" uid="uid://b081k2rn4m4ib" path="res://Prueba 1/Fondos/background4b.png" id="18_u2y37"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7drek"]
 load_path = "res://.godot/imported/small_cloud_1.png-40532304be8a8e58b358963bfcb15f67.ctex"
@@ -125,14 +125,17 @@ position = Vector2(528, 465)
 position = Vector2(559, 465)
 
 [node name="WaterReflect" type="Node2D" parent="."]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="WaterReflect"]
+visible = false
 z_index = -1
 position = Vector2(179, 477)
 scale = Vector2(5, 5)
 texture = ExtResource("12_au4px")
 
 [node name="Sprite2D2" type="Sprite2D" parent="WaterReflect"]
+visible = false
 z_index = -1
 position = Vector2(383, 516)
 scale = Vector2(5, 5)
@@ -209,13 +212,13 @@ motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(1150, 0)
 
 [node name="Bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-modulate = Color(0.126, 0.1579, 0.3, 1)
 z_index = -1
-position = Vector2(493, 317)
-scale = Vector2(3.07552, 5.17188)
-texture = ExtResource("18_sllox")
+position = Vector2(691, -98)
+scale = Vector2(1.60984, 2.14302)
+texture = ExtResource("18_u2y37")
 
 [node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(1200, 0)
 
@@ -244,6 +247,7 @@ motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(1200, 0)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(11, 7)
 motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(1200, 0)
 
