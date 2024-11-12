@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://ca3ueo0yewjov"]
+[gd_scene load_steps=76 format=3 uid="uid://ca3ueo0yewjov"]
 
 [ext_resource type="Texture2D" uid="uid://xd70a23vyklm" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/captain_clown_nose_with_sword/15_attack_1/attack_1_01.png" id="2_082ap"]
 [ext_resource type="Texture2D" uid="uid://dxflqrst5dy31" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/captain_clown_nose_without_sword/01-idle/idle_01.png" id="2_dghf6"]
@@ -29,9 +29,11 @@
 [ext_resource type="Texture2D" uid="uid://c3r8mgixho1un" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/captain_clown_nose_with_sword/14_hit_sword/hit_sword_02.png" id="12_r62e3"]
 [ext_resource type="Texture2D" uid="uid://bbcsy2nv17cpl" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/sword_effects/25-attack_2/attack_2_03.png" id="12_wjmjd"]
 [ext_resource type="Texture2D" uid="uid://duj0v6f8e18x6" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/captain_clown_nose_with_sword/09_idle_sword/idle_sword_04.png" id="13_glcic"]
+[ext_resource type="Texture2D" uid="uid://c5rv4ihymf6ue" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/captain_clown_nose_with_sword/21_attack_4/emote01.png" id="13_rbug6"]
 [ext_resource type="Texture2D" uid="uid://copn5jr6yv0wh" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/captain_clown_nose_with_sword/14_hit_sword/hit_sword_03.png" id="13_uj6mo"]
 [ext_resource type="Texture2D" uid="uid://cohjvinre4pwy" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/captain_clown_nose_with_sword/14_hit_sword/hit_sword_04.png" id="14_6fnvh"]
 [ext_resource type="Texture2D" uid="uid://efc6hgl8bbk7" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/captain_clown_nose_with_sword/09_idle_sword/idle_sword_05.png" id="14_iupfh"]
+[ext_resource type="Texture2D" uid="uid://bnejgnopmed2m" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/captain_clown_nose_with_sword/21_attack_4/emote02.png" id="14_ufcgi"]
 [ext_resource type="Texture2D" uid="uid://df7nx2ake5lsv" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/captain_clown_nose_with_sword/11_jump_sword/jump_sword_01.png" id="15_ns1ok"]
 [ext_resource type="Texture2D" uid="uid://bv4a017sgfx5c" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/captain_clown_nose_without_sword/08-dead_ground/dead_ground_01.png" id="16_hso30"]
 [ext_resource type="Texture2D" uid="uid://bb7nb2uufrfj7" path="res://assets/sprites/treasure_hunters/captain_clown_nose/sprites/captain_clown_nose/captain_clown_nose_with_sword/11_jump_sword/jump_sword_02.png" id="16_rllyj"]
@@ -111,6 +113,65 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_3",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_rbug6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ufcgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rbug6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ufcgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rbug6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ufcgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rbug6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ufcgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rbug6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ufcgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rbug6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ufcgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rbug6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ufcgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rbug6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ufcgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rbug6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ufcgi")
+}],
+"loop": false,
+"name": &"attack_4",
 "speed": 8.0
 }, {
 "frames": [{
@@ -394,7 +455,9 @@ script = ExtResource("3_odvu6")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sohxe")
-animation = &"idle_with_sword"
+animation = &"attack_4"
+frame = 17
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -2.5)
