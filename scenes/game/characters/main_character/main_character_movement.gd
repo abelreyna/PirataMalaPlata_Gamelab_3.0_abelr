@@ -14,8 +14,8 @@ extends Node2D
 @onready var _effect_sword := $"../EffectsSword" # Efectos de espada
 
 var gravity = 650 # Gravedad para el personaje
-var velocity = 100 # Velocidad de movimiento en horizontal
-var jump = 220 # Capacidad de salto, entre mayor el número más se puede saltar
+var velocity = 120 # Velocidad de movimiento en horizontal
+var jump = 210 # Capacidad de salto, entre mayor el número más se puede saltar
 # Mapa de movimientos del personaje
 var _movements = {
 	IDLE = "default",
@@ -28,6 +28,7 @@ var _movements = {
 	DEAD_HIT = "dead_hit",
 	ATTACK = "attack_2",
 	BOMB = "attack_3",
+	EMOTE = "attack_4",
 }
 var _current_movement = _movements.IDLE # Variable de movimiento
 var _is_jumping = false # Indicamos que el personaje está saltando
@@ -36,6 +37,7 @@ var _jump_count = 0 # Contador de saltos realizados
 var _died = false # Define si esta vovo o muerto
 var attacking = false # Define si esta atacando
 var bombing = false # Define si esta atacando
+var emoting = false # EMOTIZA
 var _is_playing: String = "" # Define si se esta reproducionedo el sonido
 var turn_side: String = "right" # Define si se esta reproducionedo el sonido
 
@@ -45,7 +47,7 @@ var _run_sound = preload("res://assets/sounds/running.mp3")
 var _dead_sound = preload("res://assets/sounds/dead.mp3")
 var _male_hurt_sound = preload("res://assets/sounds/male_hurt.mp3")
 var _hit_sound = preload("res://assets/sounds/slash.mp3")
-
+var _emote_sound = preload("res://assets/sounds/emote_gato.mp3")
 
 # Función de inicialización
 func _ready():
@@ -60,11 +62,18 @@ func _physics_process(_delta):
 	_move(_delta)
 	
 
+func add_velocity(value):
+	velocity += value
+
 func _unhandled_input(event):
 	# Cuando se presiona la tecla x, atacamos	
 	if event.is_action_released("hit"):
 		character.velocity.x = 0
 		_current_movement = _movements.ATTACK
+	# Cuando se presiona la tecla y, lanzamos emotiza
+	elif event.is_action_released("emote"):
+		print("EMOTIZAAAAA")
+		_current_movement = _movements.EMOTE
 	# Cuando se presiona la tecla b, lanzamos bomba
 	elif event.is_action_released("bomb"):
 		_current_movement = _movements.BOMB
@@ -111,7 +120,7 @@ func _move(delta):
 # Controla la animación según el movimiento del personaje
 func _set_animation():
 	# Si esta atacando no interrumpimos la animació	
-	if attacking or bombing:
+	if attacking or bombing or emoting:
 		return
 	# Personaje murio
 	if _died:
@@ -132,6 +141,11 @@ func _set_animation():
 		_play_sound(_hit_sound)
 		# Agregamos el effecto especial
 		_play_sword_effect()
+	elif _current_movement == _movements.EMOTE:
+		# Lanzamos EMOTE
+		emoting = true
+		main_animation.play(_movements.EMOTE)
+		_play_sound(_emote_sound)
 	elif _current_movement == _movements.BOMB:
 		# Lanzamos bomba
 		bombing = true
@@ -211,6 +225,8 @@ func _on_animation_animation_finished():
 		attacking = false
 	elif main_animation.get_animation() == _movements.BOMB:
 		bombing = false
+	elif main_animation.get_animation() == _movements.EMOTE:
+		emoting = false
 
 
 func _on_animation_frame_changed():	
